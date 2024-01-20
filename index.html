@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhea's Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Playfair+Display?query=play&sort=popularity">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<style>
+    body {
+    font-family: 'American Typewriter';
+    background-color: white;
+    color: #333;
+    margin: 10px;
+	padding: 0;
+}
+
+
+.outer-box {
+            background-color: #F1EFEF;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 1); 
+            padding: 20px; 
+            border-radius: 0 auto; 
+            margin: 50px auto; 
+            max-width: 1000px; 
+		    position: relative;
+            z-index: 1;
+        }
+
+        #img {
+            order: 1;
+            max-width: 200%;
+            align-items: center;
+            margin-top: none;
+        }
+        
+        #img img {
+            width: 100%; 
+            align-items: center;
+            display: block;
+            margin-top: 0px;
+        }
+
+    nav {
+        position: fixed;
+		display: flex;
+        justify-content: space-around;
+        top: 1px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: #F1EFEF;
+        padding: 20px 0;
+	    width: 1040px;
+        z-index: 2;
+        border-bottom: 0.2px solid #687a7c;
+        margin-bottom: 80%;
+    }
+
+
+    nav a {
+        color: black;
+        text-decoration: none;
+        font-weight: regular;
+        font-size: 1em;
+        font-family: 'Playfair Display';
+        transition: color 3s ease;
+
+    }
+	nav a.current {
+        color: #607274; 
+        padding: 4px;
+        border-radius: 5px;
+    }
+
+	.social-icon {
+        font-size: 1em; 
+        margin-left: 0.5px; 
+        color: #333;
+
+	}
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+}
+
+    .background-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: url('assets/css/love.gif') bottom center/100% auto no-repeat; 
+                background-size: 100%;
+                background-repeat: no-repeat;
+        }
+
+
+
+section, footer {
+    margin-bottom: 0;
+}
+
+.header{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: left;
+    height:100vw;
+    min-height:400px;
+    max-height:550px;
+    min-width:300px;
+    color:#eee;
+    background-image: url(assets/css/bggg.jpg);
+    background-size: cover;
+    padding: 100px 20px;
+    flex-direction: column;
+  }
+.tangina {
+    text-align: left top;
+    font-size: 50px;
+
+}
+
+.tagline {
+    font-size: 1.5em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0%;
+
+}
+.info {
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+.popup .overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+    padding: 20px 0;
+}
+.popup-btn {
+    padding: 10px 10px 10px;
+    width: 100px;
+    background-color: #F1EFEF;
+    color: #000000;
+    border-radius: 10%;
+    font-size: medium;
+    font-family: 'American Typewriter';
+}
+
+.popup .content {
+    position: fixed;
+    top: 58%;
+    left: 62%;
+    right: 30%;
+    bottom: 100%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    backface-visibility:hidden;
+    width: 450px;
+    height: 220px;
+    z-index: 0;
+    text-align: center;
+    padding: 20px 15px 350px 20px;
+    box-sizing: content-box;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 15px;
+    font-family:'American Typewriter';
+}
+
+.popup .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup.active .overlay {
+    display: none;
+}
+
+.popup.active .content {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+
+
+}
+section h2 {
+	font-size: 3em;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+
+.resume-link {
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #B3A492;
+    font-family: 'Times New Roman';
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    border-style:double;
+    position: absolute;
+    top: 46%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.docu {
+    padding: 15px 15px;
+    background-color: #7ed3d6d2;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1); 
+    position: absolute;
+    top: 59.5%;
+    left: 38%;
+    align-items: center;
+}
+
+#portt {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+.amobus img {
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    
+}
+
+.bus {
+    text-align: center;
+    font-size: 20px;
+}
+
+.motive {
+    border: #687a7c;
+    border-style: ridge;
+    padding: 10px 10px 10px 10px;
+    width: 100px;
+    position: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+}
+.tite {
+    font-size: 40px;
+    text-align: center;
+}
+.first {
+    font-size: 1.2em;
+    line-height: 1.8em; 
+    padding: 0px 50px 0px 50px;
+    text-align: center;
+}
+
+.first-letter {
+    font-size: 3.5em; 
+    font-weight: bolder; 
+    float: left;
+    margin-right: 0.1em;
+    margin-top: 0.25em;
+}
+.qoute{
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-family:inherit;
+    margin: 0%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.author{
+    font-size: 20px;
+    text-align: center;
+    font-family:inherit;
+    margin: 0%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.gabriel img{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 4%;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+.touch {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+
+}
+  
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #292828;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(80, 79, 79, 0.5); 
+}
+
+.submit {
+    background-color: #B3A492;
+    color: #292828;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bolder;
+    font-family:'American Typewriter';
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; 
+    margin: 0 auto; 
+}
+footer {
+    padding: 0%;
+    background-color: #B3A492;
+    box-shadow: 0 0 10px rgba(80, 79, 79, 0.5);
+    font-family: 'Sans serif';
+}
+.copyy {
+    text-align: center;
+    margin: 0%;
+    margin-top: 10%;
+    
+}
+
+.faq {
+    text-align: left;
+    font-size: 70px;
+    color: #000000;
+    margin: 0px;
+}
+.faqq {
+    font-size: 24px;
+    color: #333333a6;
+}
+
+.faq-container {
+    max-width: 1000px;
+    margin: 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid #333333a6;
+    padding: 10px;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'American Typewriter';
+    font-weight: bold;
+    text-align: left;
+}
+
+.answer {
+    display: none;
+    padding: 15px;
+    font-size: 23px;
+    font-weight: lighter;
+    text-align: center;
+}
+.arrow {
+    font-size: 18px;
+}
+
+/* Rotate arrow on open */
+.question.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Style for active state */
+.question.active {
+    background-color: #f1efef6b;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(80, 79, 79, 0.5);
+    
+}
+
+.answer.active {
+    display: block;
+}
+</style>
+<body>
+<div class="background-container">
+</div>
+<div class="outer-box">
+    
+
+	<nav>
+	        <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#resume">RESUME</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#blog">BLOG</a>
+            <a href="#contact">CONTACT</a>
+            <a href="https://www.facebook.com/mylifeaintfun/" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/f.rtnit3/?fbclid=IwAR0gRWK0bUT1_T8HjHBqWg_qiWOCew2yETSxJ3t6gPpuomRrVngOTDUTMHk" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/yen_nb" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/rhaenabual30" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <div class="header">
+                <h1 class="tangina">Rhealyn Nabual</h1>
+               
+                <p class="tagline">Welcome to my personal website!</p>
+                <p class="info">Let's get started.</p>
+                <button class="popup-btn" onclick="togglePopup()">Click here!</button>
+            </div>
+        </div>
+    
+    
+    <div class="popup" id="popup-1">
+        <div class="overlay" onclick="togglePopup()"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup()">&times;</div>
+            <p class="infos"><b>LIST OF CONTENTS</b></p>
+            <p class="aboutmeinfo"><b>About me:</b></p>
+                Detailed information about myself, including my background, education, skills, and interests.</p>
+                <p class="aboutmeinfo"><b>Resume/CV:</b></p>
+                Professional experience, education, skills, and achievements.</p>
+                <p class="aboutmeinfo"><b>Portfolio:</b></p>
+                Projects, or any creative endeavors.Include images, descriptions, and links to relevant work.</p>
+                <p class="aboutmeinfo"><b>Blog/Articles:</b></p>
+                Insights, or expertise on specific topics.</p>
+                <p class="aboutmeinfo"><b>Testimonials/Recommendations:</b></p>
+                Testimonials and Recommendations from colleagues, clients, or others who can vouch for my skills and work.</p>
+                <p class="aboutmeinfo"><b>Achievements and Certifications:</b></p>
+                Awards, certifications, or honors I have received.</p>
+                <p class="aboutmeinfo"><b>FAQ Section:</b></p>
+                Ask me anything!</p>
+            
+        </div>
+    </div>
+</header>
+    
+	<header>
+	<div>
+    </header>   
+	
+    <section id="about">
+    <div class="container">
+	<h2>About Me</h2>
+	
+	</div>
+    </section>
+
+	<section class="image">
+        <div id="img">
+    <img src="assets/css/yang.png">
+
+    </div>
+    </section>
+
+
+    <section id="resume">
+    <div class="container">
+        <h2>Resume/CV</h2>
+    </div>
+</section>
+
+<section class="port">
+    <div id="portt">
+    </div>
+    <a href="assets/css/my-resume.pdf" target="_blank" class="resume-link">Click here for my Resume.</a>
+</section>
+
+
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <section class="amobus">
+            <img src="assets/css/amobus.png" alt="amobus">
+            <p class="bus"><b>Amobus - Bus Reservation System</b><br>
+                Amobus is a mobile application designed to streamline the bus reservation process, making it convenient for users to 
+                book bus tickets on the go. The application offers a user-friendly interface and a range of features to 
+                enhance the overall bus reservation experience.</p>
+            </div>
+        </section>
+
+        <section id="bra">
+            <div class="braaa">
+                <a href="assets/css/documentation.pdf" target="_blank" class="docu">Click here for more info.</a>
+            </div>
+        </section>  
+
+
+    <section id="blog">
+        <div class="container">
+            <h2>Blog/Articles</h2>
+            <p class="motive">MOTIVATION</p>
+            <p class="tite"><strong>Embracing the Digital Adventure: The Joy of Being an IT Student</strong></p>
+            <p class="first"><span class="first-letter">E</span>mbarking on the thrilling journey of being an IT student feels like entering a digital wonderland where ach corner unfolds new learning adventures. 
+                In the words of Steve Jobs, 'Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work.
+                ' As students, we're not just absorbing information; we're diving into 'Diverse Learning Opportunities,' exploring programming languages, cybersecurity, and AI, finding our passion along the way. 
+                'Innovation and Creativity' are our trusted companions, pushing us to think beyond code and contribute to the dynamic world of technology. </p>
+            <p class="qoute"><strong><em>"You may encounter many defeats, but you must not be defeated."</em></strong><br></p>
+            <p class="author">- Maya Angelou</p>
+            <p class="first">As an IT student, relish every moment of this journey. The late-night coding sessions, the "aha" moments when you crack a complex problem, 
+                and the camaraderie with fellow students—these are the memories that will shape your IT adventure. 
+                Embrace the joy of learning, and let the thrill of being an IT student propel you into a future filled with endless possibilities in the world of technology.</p>
+    </section>
+
+    
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p class="touch"><strong>Get In Touch</strong></p>
+            
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+
+                    <button class="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="faq"><strong>FAQs</strong></p>
+            <p class="faqq">Frequently Asked Questions. <br> Here are some common questions about me.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="question">
+                        <span>Q1. What is a typical day like for an IT student?  </span>
+                        <div class="arrow">&#9660;</div>
+                    </div>
+                    <div class="answer">
+                        <p>A typical day for an IT student involves attending classes, 
+                            working on programming assignments or projects, collaborating with classmates, and staying updated on the latest technology trends.</p>
+                    </div>
+                </div>
+        
+                <div class="faq-item">
+                    <div class="question">
+                        <span>Q2. How much time do IT students spend on coding and programming assignments?</span>
+                        <div class="arrow">&#9660;</div>
+                    </div>
+                    <div class="answer">
+                        <p>The amount of time spent on coding varies, but us students often dedicate a significant portion 
+                            of time to programming assignments, especially during project-heavy semesters.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="question">
+                        <span>Q3. How do IT students stay updated on the latest technology trends?</span>
+                        <div class="arrow">&#9660;</div>
+                    </div>
+                    <div class="answer">
+                        <p> IT students like us stay updated by reading industry blogs, attending events, participating 
+                            in online forums, and taking advantage of resources like online courses and tutorials.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="question">
+                        <span>Q4. How do IT students handle the pressure of tight deadlines and complex projects?</span>
+                        <div class="arrow">&#9660;</div>
+                    </div>
+                    <div class="answer">
+                        <p> We learn to manage stress by breaking down tasks, setting realistic goals, seeking help when 
+                            needed, and practicing effective time management is the most important.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="question">
+                        <span>Q5. How do IT students stay motivated during challenging periods in their studies?</span>
+                        <div class="arrow">&#9660;</div>
+                    </div>
+                    <div class="answer">
+                        <p> We often stay motivated by setting clear goals, seeking support from profs and mentors, celebrating small 
+                            victories, and maintaining a passion for technology and problem-solving.</p>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <p class="copyy">&copy; 2024 Rhealyn. All rights reserved.</p>
+        </div>
+    </footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
